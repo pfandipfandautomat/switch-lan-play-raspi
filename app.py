@@ -4,6 +4,7 @@ import subprocess
 import shlex
 import psutil
 import os
+import json,urllib.request
 
 running=False
 runningServer="None"
@@ -29,7 +30,14 @@ def getServers():
 	for server in config['Servers']:
 		dummy = []
 		dummy.append(server)
+		#ping server
 		dummy.append(config['Servers'][server])
+		up  = True if os.system("ping -c 1 " + config['Servers'][server][:-6]) is 0 else False
+		dummy.append(up)
+		#get online count
+		data = urllib.request.urlopen("http://"+config['Servers'][server]+"/info").read()
+		output = json.loads(data)
+		dummy.append(output["online"])
 		servers.append(dummy)
 
 	return servers

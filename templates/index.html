@@ -18,7 +18,12 @@
       <td>{{ server[0] }}</td>
       <td>{{ server[1] }}</td>
       <td><form action="/run" method="post"> <input id="my_input" type="hidden" name="serverAddr" value="{{ server[1] }}"><button type="submit" name="serverAddr" class="btn btn-primary">Start</button></form></td>
-      <td></td>
+      <td>
+        {% if server[2] == true %}
+        <div><i class="bi bi-heart-fill">Server is up - {{ server[3] }} people online</i></div>
+        {% else %}
+        <div><i class="bi bi-heart-half">Server is down</i></div>
+        {% endif %}</td>
     </tr>
  	{% endfor %}
 {% endblock %}
