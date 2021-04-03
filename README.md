@@ -2,17 +2,8 @@
 
 Small WebApp to manage Lan Play for Switch  on a Raspberry Pi created with Flask.
 Compiled lan-play for ARM64 is included.
-It's still very much WIP
+It's still very much WIP.
 The goal is to have an executable file + a config file
-
-# Requirements
-
-    python3
-    flask
-    configparser
-    subprocess
-    shlex
-    psutil
 
 
 ## Config
@@ -22,7 +13,10 @@ Currently only the servers are configurable.
 
 
 ## Running
-
+As root:
+    python3 -m venv myvenv
+    source myvenv/bin/activate
+    pip3 install -r requirements.txt
     flask run --host <ip of raspberry>
 It'll run on port 5000 - you probably have to open the port.
 ## Thanks to

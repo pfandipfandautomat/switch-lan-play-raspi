@@ -9,6 +9,7 @@ running=False
 runningServer="None"
 
 def startProgramm(cmd):
+    stopProgramm()
 	command = "./lan-play --relay-server-addr "+cmd
 	logfile = open('output', 'w', 1)
 	proc = subprocess.Popen(shlex.split(command), stdout=logfile, bufsize=1)
