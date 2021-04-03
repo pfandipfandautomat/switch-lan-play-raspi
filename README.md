@@ -13,12 +13,16 @@ Currently only the servers are configurable.
 
 
 ## Running
-As root:
+As Root:
+
+
     python3 -m venv myvenv
     source myvenv/bin/activate
     pip3 install -r requirements.txt
     flask run --host <ip of raspberry>
-It'll run on port 5000 - you probably have to open the port.
+    It'll run on port 5000 - you probably have to open the port.
+
+
 ## Thanks to
 spacemeowx2 for creating lan-play
 https://github.com/spacemeowx2/switch-lan-play
