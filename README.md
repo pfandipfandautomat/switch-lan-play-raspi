@@ -15,7 +15,8 @@ Currently only the servers are configurable.
 ## Running
 As Root:
 
-
+    git clone git@github.com:arthurkoch/switch-lan-play-raspi.git
+    cd switch-lan-play-raspi
     python3 -m venv myvenv
     source myvenv/bin/activate
     pip3 install -r requirements.txt
