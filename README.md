@@ -9,11 +9,11 @@ The goal is to have an executable file + a config file
 
 FULL DISCLAIMER: I have almost no coding experience, I taught myself all of this while trying to find a solution, so this comes with no gaurantee. 
 
-After a lot of research and testing, I found that you must use v0.1.0 of the original switch-lan-play file in order for it to work on Raspberry Pi. Any newer version will not work. I have included my copy of that file in this repo.
+After a lot of research and testing, I found that you must use v0.1.0 of the original switch-lan-play file in order for it to work on Raspberry Pi. Any newer version will not work. I have included my copy of that file in this git.
 
 I have updated config.ini to reflect current active lan-play servers, the original one was very out of date. You can obviously still edit it to your personal needs.
 
-I made some changes to the app code to replace the `ping` command with `nc` when looking up server activity. This runs much quicker and allows for checking specific ports for different IPs
+I made some changes to the app code to replace the `ping` command with `nc` when looking up server activity. This runs much quicker and allows for checking specific ports for different IPs.
 
 
 ## Config
@@ -33,9 +33,13 @@ As Root:
     flask run --host <ip of raspberry>
     
 
-It'll run on port 5000 - you probably have to open the port.
+It'll run on port 5000, so <ip of raspberry>:5000 in your web browser.
 
 ## Thanks to
-spacemeowx2 for creating lan-play
+
+arthurkoch for originally developing this web GUI:
+https://github.com/arthurkoch/switch-lan-play-raspi
+
+spacemeowx2 for creating lan-play:
 https://github.com/spacemeowx2/switch-lan-play
 
