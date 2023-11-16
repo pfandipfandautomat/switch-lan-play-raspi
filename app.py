@@ -11,7 +11,7 @@ runningServer="None"
 
 def startProgramm(cmd):
 	stopProgramm()
-	command = "./lan-play --relay-server-addr "+cmd
+	command = "./lan-play --netif eth0 --relay-server-addr "+cmd
 	logfile = open('output', 'w', 1)
 	proc = subprocess.Popen(shlex.split(command), stdout=logfile, bufsize=1)
 	return True
@@ -32,7 +32,16 @@ def getServers():
 		dummy.append(server)
 		#ping server
 		dummy.append(config['Servers'][server])
-		up  = True if os.system("ping -c 1 " + config['Servers'][server][:-6]) is 0 else False
+		server_address = config['Servers'][server][:-6]
+
+		# Checking a different port for a specific server
+		if server == 'joinsg':
+   		 	port_to_check = 11453  # Replace with the specific port for this server
+		else:
+    			port_to_check = 11451  # Replace with the default port for other servers
+
+		# Using os.system nc to check if the port is open
+		up = True if os.system(f"nc -zv -w 1 {server_address} {port_to_check}") == 0 else False
 		dummy.append(up)
 		#get online count
 		data = urllib.request.urlopen("http://"+config['Servers'][server]+"/info").read()
